@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon.in</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <div class="logo">amazon<span>.in</span></div>
+  <div class="search-wrap">
+    <select id="cat-sel">
+      <option value="all">All</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="home">Home</option>
+      <option value="books">Books</option>
+      <option value="sports">Sports</option>
+      <option value="beauty">Beauty</option>
+      <option value="toys">Toys</option>
+    </select>
+    <input type="text" id="q" placeholder="Search Amazon.in" onkeydown="if(event.key==='Enter')search()">
+    <button onclick="search()">&#128269;</button>
+  </div>
+  <div class="nav-links">
+    <div class="nav-link"><small>Hello, sign in</small><strong>Account &amp; Lists</strong></div>
+    <div class="nav-link"><small>Returns</small><strong>&amp; Orders</strong></div>
+    <button class="cart-btn" onclick="openCart()">&#128722; Cart <span class="badge" id="badge">0</span></button>
+  </div>
+</nav>
+
+<!-- SUBNAV -->
+<div class="subnav">
+  <a onclick="filterCat('all')">All</a>
+  <a onclick="filterCat('electronics')">Electronics</a>
+  <a onclick="filterCat('fashion')">Fashion</a>
+  <a onclick="filterCat('home')">Home &amp; Kitchen</a>
+  <a onclick="filterCat('books')">Books</a>
+  <a onclick="filterCat('sports')">Sports</a>
+  <a onclick="filterCat('beauty')">Beauty</a>
+  <a onclick="filterCat('toys')">Toys &amp; Games</a>
+  <a>Today's Deals</a>
+  <a>Prime</a>
+  <a>Customer Service</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Shop millions of products</h2>
+  <p>Free delivery on orders above &#8377;499 &nbsp;&bull;&nbsp; Easy returns &nbsp;&bull;&nbsp; Secure payments</p>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="section-title" id="stitle">Featured Products</div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- FOOTER -->
+<div class="ft" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</div>
+<div class="fb">
+  <div style="color:#ff9900;font-size:18px;font-weight:bold;margin-bottom:6px">amazon<span style="color:#fff">.in</span></div>
+  &copy; 2025 Amazon clone &mdash; for educational use only
+</div>
+
+<!-- CART -->
+<div class="overlay" id="ov" onclick="closeCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    Shopping Cart
+    <button onclick="closeCart()">&#10005;</button>
+  </div>
+  <div class="drawer-body" id="cbody"></div>
+  <div class="drawer-foot" id="cfoot">
+    <div class="sub-row">
+      <span>Subtotal (<span id="ccount">0</span> items):</span>
+      <strong id="ctotal">&#8377;0</strong>
+    </div>
+    <button class="checkout" onclick="showToast('Checkout not available in demo')">Proceed to Buy</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
